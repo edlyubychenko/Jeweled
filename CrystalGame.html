@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=4.0">
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"|script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<style type="text/css">
+
+.center {
+    margin: auto;
+    width: 25%;
+    border: 75px double pink;
+    padding: 10px;
+}
+
+
+body  { 
+    background-image: url("http://vignette2.wikia.nocookie.net/bejeweled/images/5/56/Bejeweled_Blitz_-_x1.jpg/revision/latest?cb=20131117090832");
+    background-color: #cccccc;
+}
+button { border-style: double; color: purple;}
+h2 { color: pink; }
+
+
+#count { color: pink; font-size: 250%;  font-weight: 900;
+
+}
+
+</style>
+
+	<title>E Jeweled</title>
+	
+</head>
+
+<body>
+<div class="center">
+
+<h2>Click a jewel to start game, Refresh to play again!</h2>
+
+<button id="crystal1"><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRSgMfoZczWumNTiwF_8_aMkRTQrpWxMjyi8991qdNv6L1oE9bJ" height="250" width="200"></button>
+
+<button id="crystal2"><img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT42WSNtsdeBT1WMCX2zl5L6QkkbGW0orc24vhevOJeSBZW87do" height="250" width="200"></button>
+
+
+<button id="crystal3"><img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ_1HkjeUml55bvk1EYBm5XYTcv2Lve8jGZVV6x2UQRlWOzLbbKcQ" height="250" width="200"></button>
+
+<button id="crystal4"><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSoNaEuVaL-hn3K5_KvjMxNNnWuySaC13ThSyUO42kB4iBgYKai" height="250" width="200"></button>
+
+
+<div id="count"></div>
+
+<script type="text/javascript">
+
+ var winningNumber;
+
+$("#update").click(function() {
+$("#count")++;
+$("#count").html("My current count is: "+count);
+});
+
+  
+
+var crystal1 = Math.floor(Math.random()* 10)
+var crystal2 = Math.floor(Math.random()* 10)
+var crystal3 = Math.floor(Math.random()* 20)
+var crystal4 = Math.floor(Math.random()* 10)
+var count = 0;
+var wins = 0;
+var losses = 0;
+
+$(document).ready(function() {
+	function reset() {
+		winningNumber = Math.floor(Math.random()* 100)
+	}
+	winningNumber = Math.floor(Math.random()* 100)
+	console.log(winningNumber);
+
+  $("#crystal1").on("click", function(){
+         count = count +crystal1;
+
+ $('#count').html("Your Score is:" + count);
+ $('#wins').html("Wins:" + wins);
+  $('#losses').html("Losses:" + losses);
+
+console.log(count);
+if (count === winningNumber) {
+	alert("You Win!")
+	wins++;
+	crystal1 = Math.floor(Math.random()* 10)
+	reset()
+
+}
+	
+else if (count > winningNumber) {
+	alert("You Lose") 
+	losses++;
+	crystal1 = Math.floor(Math.random()* 10)
+	reset()
+ }
+         
+      });
+
+ $("#crystal2").on("click", function(){
+ 	count = count +crystal2;
+ 	$('#count').html("Your Score is:" + count);
+         console.log(count);
+if (count === winningNumber) {
+	alert("You Win!")
+	wins++;
+	crystal2 = Math.floor(Math.random()* 10)
+	reset()
+
+
+}
+	
+else if (count > winningNumber) {
+	alert("You Lose") 
+	losses++;
+	crystal2 = Math.floor(Math.random()* 10)
+	reset()
+ }
+      });
+
+  $("#crystal3").on("click", function(){
+ 		count = count +crystal3;
+ 	$('#count').html("Your Score is:" + count);
+       
+console.log(count);
+if (count === winningNumber) {
+	alert("You Win!")
+	wins++;
+	crystal3 = Math.floor(Math.random()* 20)
+	reset()
+
+}
+	
+else if (count > winningNumber) {
+	alert("You Lose") 
+	losses++;
+	crystal3 = Math.floor(Math.random()* 20)
+	reset()
+
+ }
+          
+     });
+$("#crystal4").on("click", function(){
+        count = count +crystal4;
+ 	$('#count').html("Your Score is:" + count);
+console.log(count);
+         
+if (count === winningNumber) {
+	alert("You Win!")
+	crystal4 = Math.floor(Math.random()* 10)
+	wins++;
+	winningNumber = Math.floor(Math.random()* 300)
+	reset()
+
+}
+	
+else if (count > winningNumber) {
+	alert("You Lose")
+	crystal4 = Math.floor(Math.random()* 10) 
+	losses++;
+	reset()
+ }
+
+});
+
+});
+
+
+
+</script>
+</body>
+</html>
